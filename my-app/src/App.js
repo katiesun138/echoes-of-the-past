@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Summary from './Summary';
+import GoogleApi from './GoogleApi';
+import Start from './Start';
+import {Route, Link, Router} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Router> */}
+        <Route exact path='/' component={Start}/>
+        <Route exact path='/summary' component={Summary}/>
+        <Route exact path='/googleapi' component={GoogleApi}/>
+      {/* </Router> */}
     </div>
   );
 }

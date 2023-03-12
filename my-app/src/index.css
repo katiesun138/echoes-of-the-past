@@ -13,14 +13,14 @@ code {
 }
 
 
-.header {
+.title {
   font-size: 50px;
   text-align: left;
   padding-left: 95px;
   font-family: 'DM Sans', sans-serif;
 }
 
-.subHeader {
+.subTitle {
   font-size: 21px;
   text-align: left;
   padding-left: 95px;
@@ -32,4 +32,21 @@ code {
   text-align: left;
   padding-left: 95px;
   font-family: 'DM Sans', sans-serif;
+  padding-bottom: 15px;
+}
+
+button {
+  border: none;
+  background-color: black;
+  border-radius: 25px;
+  height: 50px;
+  width: 100px;
+  padding: 10px 50px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.button-grp {
+  display: flex;
+  flex-direction: column;
 }

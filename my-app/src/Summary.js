@@ -6,6 +6,8 @@ function Summary(data){
     const [condensed, setCondensed] = useState('');
     const [place, setPlace] = useState('');
     const [results, setResults] = useState([]);
+    const [artist, setArtist] = useState("");
+    const [link, setLink] = useState("");
 
     async function handleSearch(data1){
         console.log('hello we are herer __----------------')
@@ -71,6 +73,22 @@ function Summary(data){
         // console.log("COHERE DATA IS DONE!")
     }
 
+    const artistName = async (e) => {
+        e.preventDefault()
+        const result = await fetch("https://api.spotify.com/v1/search?" + new URLSearchParams({
+            q: artist,
+            type: "track",
+            limit: 1
+        }), {
+            method: "GET",
+            headers: {
+                Authorization: 'Bearer BQDMmvOGLoAgfT_JdIg22rgyWUpW-VZdsoQhbWgVofNcc6LM8xP--79Anv_14LUc-LuT-ykXT0nMPbJOgSj9hxb23utXJQlXN_un4VdQu7vT5H47C4WaOSPue-zc4lQ6AYswRn028eLUUE7vrG2JLc7KRIfPh7SKWd1_vDgoD9P6l-XcZMqWAdVOkIdNI1JkRklg'
+            }
+        })
+        const jsonLogs = await result.json()
+        setLink(jsonLogs.tracks.items[0].external_urls.spotify)
+    }
+
     useEffect(()=>{
         handleSearch(data)
     }, [data]);
@@ -82,9 +100,13 @@ function Summary(data){
             <h1 >Welcome to the summary page</h1>
             {data}
             {condensed}
-            
+            <form onSubmit={artistName}>
+                <input type="text" onChange={e => setArtist(e.target.value)}/> 
+                <button type={"submit"}>search</button>
+                <a href={link}>Spotify link here!</a>
+            </form>
         </div>
-    )
+        )
 }
 
 export default Summary;

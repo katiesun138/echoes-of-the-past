@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.header {
+  font-size: 50px;
+  text-align: left;
+  padding-left: 95px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.subHeader {
+  font-size: 21px;
+  text-align: left;
+  padding-left: 95px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+#blurb {
+  font-size: 30px;
+  text-align: left;
+  padding-left: 95px;
+  font-family: 'DM Sans', sans-serif;
+}

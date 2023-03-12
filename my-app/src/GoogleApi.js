@@ -44,7 +44,7 @@ function GoogleApi(set){
                 <h3>Tracking your location...</h3>
             </div>
             <br />
-            <form onSubmit={handleSearch} >
+            <form id="currLoc" onSubmit={handleSearch} >
                 <input type="text" value={place} placeholder={placeholder} onChange={e => {setPlace(e.target.value); }}/>
                  
                  {/* <Link to={{
@@ -60,24 +60,24 @@ function GoogleApi(set){
 
 <hr />
             {show && <div >
-                <div>
-                    <h2>Sun Tower</h2>
-                    <button value={place} onClick={e => { const value = 'sun tower'; setPlace("sun tower"); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                <div id="listGroup">
+                    <h2 >Sun Tower</h2>
+                    <button id="buttonList" value={place} onClick={e => { const value = 'sun tower'; setPlace("sun tower"); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
                 </div>
 
-                <div>
+                <div id="listGroup">
                     <h2>Dominion Building</h2>
-                    <button value={place} onClick={e => { const value = 'dominion building'; setPlace('dominion building'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                    <button id="buttonList" value={place} onClick={e => { const value = 'dominion building'; setPlace('dominion building'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
                 </div>
 
-                <div>
+                <div id="listGroup">
                     <h2>Pacific Central Station</h2>
-                    <button value={place} onClick={e => { const value = 'pacific central station'; setPlace('pacific central station'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                    <button id="buttonList" value={place} onClick={e => { const value = 'pacific central station'; setPlace('pacific central station'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
                 </div>
 
-                <div>
+                <div id="listGroup">
                     <h2>Bessborough Armoury</h2>
-                    <button value={place} onClick={e => { const value = 'bessborough armoury'; setPlace('bessborough armoury'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                    <button id="buttonList" value={place} onClick={e => { const value = 'bessborough armoury'; setPlace('bessborough armoury'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
                 </div>
             </div>}
 

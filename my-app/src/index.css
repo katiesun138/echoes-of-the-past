@@ -44,9 +44,6 @@ button {
   color: white;
   margin-bottom: 10px;
   margin-left: 100px;
-  padding-left: 63px;
-  padding-right: 63px;
-  text-align: justify;
   white-space: nowrap;
 }
 
@@ -58,4 +55,14 @@ button {
 
 a {
   padding-right: 100px;
+}
+
+#listGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+#buttonList{
+  align-self: center;
+  margin-left: 0px;
 }

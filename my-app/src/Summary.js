@@ -73,20 +73,23 @@ function Summary(data){
         // console.log("COHERE DATA IS DONE!")
     }
 
-    async function artistName(track) {
+    const artistName = async (e) => {
+        e.preventDefault()
         const result = await fetch("https://api.spotify.com/v1/search?" + new URLSearchParams({
-            q: track,
+            q: artist,
             type: "track",
             limit: 1
         }), {
             method: "GET",
             headers: {
-                Authorization: 'Bearer BQBjbxnWFsj8vIvWIRGLpc3iAvzsU2xtNs9eHzjwZFmxRgbIe58iZscdCIVNu9PFfpvbSzjhCkR3OpKVUvaI2gwEZ'
+                Authorization: 'Bearer BQDMmvOGLoAgfT_JdIg22rgyWUpW-VZdsoQhbWgVofNcc6LM8xP--79Anv_14LUc-LuT-ykXT0nMPbJOgSj9hxb23utXJQlXN_un4VdQu7vT5H47C4WaOSPue-zc4lQ6AYswRn028eLUUE7vrG2JLc7KRIfPh7SKWd1_vDgoD9P6l-XcZMqWAdVOkIdNI1JkRklg'
             }
         })
         const jsonLogs = await result.json()
-        console.log(jsonLogs)
-        setLink(jsonLogs.tracks.items[0].external_urls.spotify)
+        console.log("THIS IS IN ARTIST NAME LOGGED BELOW!!!")
+        console.log(jsonLogs.tracks.items[0].external_urls.spotify)
+        window.location.replace(jsonLogs.tracks.items[0].external_urls.spotify)
+        //setLink(jsonLogs.tracks.items[0].external_urls.spotify)
     }
 
     useEffect(()=>{
@@ -100,10 +103,12 @@ function Summary(data){
             <h1 >Welcome to the summary page</h1>
             {data}
             {condensed}
-            <p onLoad={artistName(data)}></p>
-            <a href={link}>Spotify link here!</a>
+            <button onClick={() => {setArtist(data); console.log(data)}}></button>
+            <button onClick={artistName}>Spotify link here!</button>
+
+            {/* <a href={link} onClick={artistName}>Spotify link here!</a> */}
         </div>
-    )
+        )
 }
 
 export default Summary;

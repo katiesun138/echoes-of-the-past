@@ -2,7 +2,8 @@ import React from "react";
 
 function Start(){
     return(
-        <div>
+        <body>
+            
             <div>
                 <h3 className="title">echoes of the past</h3>
                 <h2 className="subTitle">a new way to learn, explore, and connect with your city</h2>
@@ -22,7 +23,7 @@ function Start(){
                     <button id="liveLoc">Live Location</button>
                 </a>
             </div>
-        </div>
+        </body>
     )
 }
 

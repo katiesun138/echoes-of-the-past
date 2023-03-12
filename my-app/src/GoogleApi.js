@@ -38,30 +38,44 @@ function GoogleApi(set){
    
 
     return(
-        <div>
-            <h1>Welcome to the GoogleApi page</h1>
-            <div>
-                <h3>Tracking your location...</h3>
+        <body>
+            <header >
+                <img class="image" src={require('./Picture1.png')}  alt="photo of logo" />
+            </header>
+            <div id="parent">
+                <div>
+                    <h1 id="blurb" className="shorten" >We are excited that you want to learn 
+                        more about your surroundings!</h1>
+                    <div>
+                        <h3 id="blurbsmaller" className="shorten">To start, please enter a location or use your current location:</h3>
+                    </div>
+                    <br />
+                    <form onSubmit={handleSearch}  id="blurbsmallerForm" >
+                        <input type="text" class="inputText" value={place} placeholder={placeholder} onChange={e => {setPlace(e.target.value); }}/>
+                        
+                        {/* <Link to={{
+                            pathname:"Summary",
+                            data:place
+                        }}> */}
+                        <input type="submit" id="inputLoc" value="Set to Current Location..." onClick={()=>{setShow(!show); 
+                            setPlaceholder('UBC')}}/>
+                            {/* </Link>  */}
+                        
+                        
+                    </form>
+                </div>
+                    
+                <div>
+                    <img src={require("./location.png")} className="photoImageMap" alt="image of map" />
+                </div>
             </div>
-            <br />
-            <form id="currLoc" onSubmit={handleSearch} >
-                <input type="text" value={place} placeholder={placeholder} onChange={e => {setPlace(e.target.value); }}/>
-                 
-                 {/* <Link to={{
-                    pathname:"Summary",
-                    data:place
-                }}> */}
-                  <input type="submit" value="Set to Current Location..." onClick={()=>{setShow(!show); 
-                    setPlaceholder('UBC')}}/>
-                    {/* </Link>  */}
-                
-                
-            </form>
-
+          
+            <p id="horiz"></p>
 <hr />
             {show && <div >
-                <div id="listGroup">
-                    <h2 >Sun Tower</h2>
+                <h1>Here is a list of places to explore near you:</h1>
+                <div>
+                    <h2>Sun Tower</h2>
                     <button id="buttonList" value={place} onClick={e => { const value = 'sun tower'; setPlace("sun tower"); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
                 </div>
 
@@ -81,7 +95,7 @@ function GoogleApi(set){
                 </div>
             </div>}
 
-        </div>
+        </body>
     )
 }
 

@@ -98,16 +98,30 @@ function Summary(data){
 
 
     return(
-        <div>
-            {/* <p onLoad={handleSearch()}></p> */}
-            <h1 >Welcome to the summary page</h1>
-            {data}
+        <body>
+            <header >
+                <img class="image" src={require('./Picture1.png')}  alt="photo of logo" />
+            </header>
+            
+            <h1 id="blurb">Here is the summary of your selected location: </h1>
+            {data}:
             {condensed}
-            <button onClick={() => {setArtist(data); console.log(data)}}></button>
+
+            <h1 id="blurb">Generate music according to the name of the location: </h1>
+
+            <button id='widerbutton' onClick={() => {setArtist(data); console.log(data)}}>Click me, then click the right button</button>
             <button onClick={artistName}>Spotify link here!</button>
 
             {/* <a href={link} onClick={artistName}>Spotify link here!</a> */}
-        </div>
+        
+
+
+            {/* <form onSubmit={artistName} id="blurbsmallerForm">
+                <input type="text" onChange={e => setArtist(e.target.value)}/> 
+                <button type={"submit"}>search</button>
+                <a href={link}>Spotify link here!</a>
+            </form> */}
+        </body>
         )
 }
 

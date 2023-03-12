@@ -73,10 +73,9 @@ function Summary(data){
         // console.log("COHERE DATA IS DONE!")
     }
 
-    const artistName = async (e) => {
-        e.preventDefault()
+    async function artistName(track) {
         const result = await fetch("https://api.spotify.com/v1/search?" + new URLSearchParams({
-            q: artist,
+            q: track,
             type: "track",
             limit: 1
         }), {
@@ -101,11 +100,8 @@ function Summary(data){
             <h1 >Welcome to the summary page</h1>
             {data}
             {condensed}
-            <form onSubmit={artistName}>
-                <input type="text" onChange={e => setArtist(e.target.value)}/> 
-                <button type={"submit"}>search</button>
-                <a href={link}>Spotify link here!</a>
-            </form>
+            <p onLoad={artistName(data)}></p>
+            <a href={link}>Spotify link here!</a>
         </div>
         )
 }

@@ -81,7 +81,7 @@ function Summary(data){
         }), {
             method: "GET",
             headers: {
-                Authorization: 'Bearer BQDMmvOGLoAgfT_JdIg22rgyWUpW-VZdsoQhbWgVofNcc6LM8xP--79Anv_14LUc-LuT-ykXT0nMPbJOgSj9hxb23utXJQlXN_un4VdQu7vT5H47C4WaOSPue-zc4lQ6AYswRn028eLUUE7vrG2JLc7KRIfPh7SKWd1_vDgoD9P6l-XcZMqWAdVOkIdNI1JkRklg'
+                Authorization: 'Bearer BQBjbxnWFsj8vIvWIRGLpc3iAvzsU2xtNs9eHzjwZFmxRgbIe58iZscdCIVNu9PFfpvbSzjhCkR3OpKVUvaI2gwEZ'
             }
         })
         const jsonLogs = await result.json()
@@ -103,7 +103,7 @@ function Summary(data){
             <p onLoad={artistName(data)}></p>
             <a href={link}>Spotify link here!</a>
         </div>
-        )
+    )
 }
 
 export default Summary;

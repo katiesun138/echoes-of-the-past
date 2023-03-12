@@ -86,6 +86,7 @@ function Summary(data){
             }
         })
         const jsonLogs = await result.json()
+        console.log(jsonLogs)
         setLink(jsonLogs.tracks.items[0].external_urls.spotify)
     }
 

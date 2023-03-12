@@ -20,6 +20,8 @@ function GoogleApi(set){
     const [pid, setPid] = useState('');
     const [results, setResults] = useState([]);
     const history = useHistory();
+    const [show, setShow] = useState(false);
+    const [placeholder, setPlaceholder] = useState('');
 
 
     const handleSearch = async e => {
@@ -41,20 +43,44 @@ function GoogleApi(set){
             <div>
                 <h3>Tracking your location...</h3>
             </div>
-            <form onSubmit={handleSearch}  >
-                <input type="text" value={place} onChange={e => {setPlace(e.target.value); }}/>
+            <br />
+            <form onSubmit={handleSearch} >
+                <input type="text" value={place} placeholder={placeholder} onChange={e => {setPlace(e.target.value); }}/>
                  
                  {/* <Link to={{
                     pathname:"Summary",
                     data:place
                 }}> */}
-                  <input type="submit" value="Search"/>
+                  <input type="submit" value="Set to Current Location..." onClick={()=>{setShow(!show); 
+                    setPlaceholder('UBC')}}/>
                     {/* </Link>  */}
                 
                 
             </form>
-            {/* <button onClick={()=>navigate('summary')}></button> */}
-        
+
+<hr />
+            {show && <div >
+                <div>
+                    <h2>Sun Tower</h2>
+                    <button value={place} onClick={e => { const value = 'sun tower'; setPlace("sun tower"); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                </div>
+
+                <div>
+                    <h2>Dominion Building</h2>
+                    <button value={place} onClick={e => { const value = 'dominion building'; setPlace('dominion building'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                </div>
+
+                <div>
+                    <h2>Pacific Central Station</h2>
+                    <button value={place} onClick={e => { const value = 'pacific central station'; setPlace('pacific central station'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                </div>
+
+                <div>
+                    <h2>Bessborough Armoury</h2>
+                    <button value={place} onClick={e => { const value = 'bessborough armoury'; setPlace('bessborough armoury'); console.log(value); set(value); history.push('/summary');}}>Learn More</button>
+                </div>
+            </div>}
+
         </div>
     )
 }
